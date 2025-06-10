@@ -13,7 +13,7 @@ $usuario_id = $_SESSION['usuario_id'];
 
 <div class="d-flex justify-content-between align-items-center" >
 
-    <h2>Bem-vindo, <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?>!</h2>
+    <h2>Bem-vindo, <?php echo ucfirst(htmlspecialchars($_SESSION['usuario_nome'])); ?>!</h2>
     <a href="logout.php" class="btn btn-danger">Sair</a> 
 
 </div>

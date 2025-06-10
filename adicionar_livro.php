@@ -15,7 +15,7 @@ $usuario_id = $_SESSION['usuario_id'];  //Pega o id da sessão do user logado
 $sql = "INSERT INTO livros (titulo, autor, status, usuario_id) VALUES ('$titulo', '$autor', '$status', '$usuario_id')";
 
 if(mysqli_query($conexao, $sql)){
-    header('Location: index.php');
+    header('Location: dashboard.php');
 }else{
     echo "Erro ao adicionar livro" . mysqli_error($conexao);
 }
