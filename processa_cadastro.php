@@ -9,7 +9,7 @@
     $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)";
     $stmt = mysqli_prepare($conexao, $sql);
 
-    $mysqli_stmt_bind_param($stmt, "sss", $nome, $email, $senha_hash);
+    mysqli_stmt_bind_param($stmt, "sss", $nome, $email, $senha_hash);
 
     if(mysqli_stmt_execute($stmt)){
         header("Location: index.php");
