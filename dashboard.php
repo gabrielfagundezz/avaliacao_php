@@ -14,7 +14,9 @@ $usuario_id = $_SESSION['usuario_id'];
 <div class="d-flex justify-content-between align-items-center" >
 
     <h2>Bem-vindo, <?php echo ucfirst(htmlspecialchars($_SESSION['usuario_nome'])); ?>!</h2>
-    <a href="logout.php" class="btn btn-danger">Sair</a> 
+    <a href="logout.php" class="btn btn-danger">
+        <i class="fas fa-sign-out-alt"></i> Sair
+    </a> 
 
 </div>
 <hr>
@@ -38,7 +40,9 @@ $usuario_id = $_SESSION['usuario_id'];
         </div>
 
         <div class="col-md-2">
-            <button type="submit" class="btn btn-primary w-100">Adicionar</button>
+            <button type="submit" class="btn btn-primary w-100">
+                <i class="fas fa-plus"></i> Adicionar
+            </button>
         </div>
 
     </div>
@@ -68,7 +72,7 @@ $usuario_id = $_SESSION['usuario_id'];
                 echo "<td>" . htmlspecialchars($livro['titulo']) . "</td>";
                 echo "<td>" . htmlspecialchars($livro['autor']) . "</td>";
                 echo "<td>" . htmlspecialchars($livro['status']) . "</td>";
-                echo "<td><a href='excluir_livro.php?id=" . $livro['id'] . "' class='btn btn-danger btn-sm'>Excluir</a></td>";
+                echo "<td><a href='excluir_livro.php?id=" . $livro['id'] . "' class='btn btn-danger btn-sm'><i class='fas fa-trash-alt'></i> Excluir</a></td>";
                 echo "</tr>";
 
             }
