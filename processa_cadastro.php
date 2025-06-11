@@ -6,7 +6,7 @@
     $email = $_POST['email'];
     $senha_hash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('?', '?', '?')";
+    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)";
     $stmt = mysqli_prepare($conexao, $sql);
 
     $mysqli_stmt_bind_param($stmt, "sss", $nome, $email, $senha_hash);
