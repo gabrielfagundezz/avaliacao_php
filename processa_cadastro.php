@@ -1,4 +1,4 @@
-<?php 
+<?php session_start(); 
 
     require 'db.php';
 
@@ -12,6 +12,7 @@
     mysqli_stmt_bind_param($stmt, "sss", $nome, $email, $senha_hash);
 
     if(mysqli_stmt_execute($stmt)){
+        $_SESSION['mensagem_sucesso'] = "Conta criada com sucesso! Agora você já pode fazer o login.";
         header("Location: index.php");
     }else{
         echo "Erro ao cadastrar usuário";

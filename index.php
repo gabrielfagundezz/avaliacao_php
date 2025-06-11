@@ -1,8 +1,27 @@
-<?php include 'header.php';  ?>
+<?php session_start(); include 'header.php';  ?>
+
 
 <div class="row justify-content-center" >
 
     <div class="col-md-6">
+        <div class="container mt-5"> <?php
+
+            //Exibindo alerta de sucesso ao fazer o cadastro
+            //verificando se a sessão contém a mensagem de sucesso
+            if(isset($_SESSION['mensagem_sucesso'])){
+
+                echo '<div class="alert alert-success alert-dismissible fade show" role="alert">';
+                echo $_SESSION['mensagem_sucesso'];
+                echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+                echo '</div>';
+
+                //limpa a mensagem para ela não aparecer de novo ao recarregar a página
+                unset($_SESSION['mensagem_sucesso']);
+
+            }
+
+
+            ?>
         <h1 class="text-center" >Login</h1>
 
             <form action="processa_login.php" method="post" >
