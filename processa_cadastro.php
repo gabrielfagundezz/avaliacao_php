@@ -4,15 +4,19 @@
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    $senha_hash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha')";
+    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('?', '?', '?')";
+    $stmt = mysqli_prepare($conexao, $sql);
 
-    if(mysqli_query($conexao, $sql)){
+    $mysqli_stmt_bind_param($stmt, "sss", $nome, $email, $senha_hash);
+
+    if(mysqli_stmt_execute($stmt)){
         header("Location: index.php");
     }else{
         echo "Erro ao cadastrar usuário";
     }
 
+    mysqli_stmt_close($stmt);
     mysqli_close($conexao);
 ?>
