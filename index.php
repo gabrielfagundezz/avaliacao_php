@@ -20,6 +20,18 @@
 
             }
 
+            //exibindo mensagem de erro no caso de email ou senha errados
+            if (isset($_SESSION['mensagem_erro'])) {
+    
+                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">';
+                echo $_SESSION['mensagem_erro'];
+                echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+                echo '</div>';
+
+                // limpa a mensagem de erro
+                unset($_SESSION['mensagem_erro']);
+}
+
 
             ?>
         <h1 class="text-center" >Login</h1>

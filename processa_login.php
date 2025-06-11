@@ -23,17 +23,17 @@
         $usuario = mysqli_fetch_assoc($resultado);
 
         if(password_verify($senha_form, $usuario['senha'])){
-            $_SESSION['usuario_id'] = $usuario['id'];
+            $_SESSION['usuario_id'] = $usuario['id'];   
             $_SESSION['usuario_nome'] = $usuario['nome'];
             header('Location: dashboard.php');
             exit;
-        }else{
-            echo "Email ou senha inválidos";
         }
     
-    }else{
-        echo "Email ou senha inválidos";
     }
+
+    $_SESSION['mensagem_erro'] = "Email ou senha incorretos.";
+    header("Location: index.php");
+    exit();
 
     mysqli_stmt_close($stmt);
     mysqli_close($conexao);
